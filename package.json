@@ -43,9 +43,9 @@
   },
   "dependencies": {
     "@formspree/deploy": "^0.3.3",
-    "axios": "^0.21.1",
+    "axios": "^0.21.4",
     "chalk": "^2.4.2",
-    "common-tags": "^1.8.0",
+    "common-tags": "^1.8.2",
     "dotenv": "^8.2.0",
     "execa": "^2.1.0",
     "ora": "^4.1.1",
