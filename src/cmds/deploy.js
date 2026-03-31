@@ -169,6 +169,7 @@ exports.handler = async args => {
     const response = await deploy.request({
       endpoint,
       config,
+      force: args.force,
       key,
       userAgent
     });
