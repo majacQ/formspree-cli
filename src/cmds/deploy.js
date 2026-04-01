@@ -60,7 +60,8 @@ exports.builder = yargs => {
 
   yargs.option('force', {
     alias: 'f',
-    describe: 'Skip verifying that secrets reference environment variables',
+    describe:
+      'Skip verifying that secrets reference environment variables and force the deployment via the API',
     type: 'boolean',
     default: false
   });
