@@ -39,7 +39,7 @@ it('sends a deploy request with the right params', async () => {
     });
   });
 
-  await cmd.handler({ config: '{}', key: 'xxx' });
+  await cmd.handler({ config: '{}', key: 'xxx', force: false });
   expect(console.log.mock.calls).toMatchSnapshot();
 });
 
