@@ -60,7 +60,8 @@ exports.builder = yargs => {
 
   yargs.option('force', {
     alias: 'f',
-    describe: 'Skip verifying that secrets reference environment variables',
+    describe:
+      'Skip verifying that secrets reference environment variables and force the deployment via the API',
     type: 'boolean',
     default: false
   });
@@ -169,6 +170,7 @@ exports.handler = async args => {
     const response = await deploy.request({
       endpoint,
       config,
+      force: args.force,
       key,
       userAgent
     });

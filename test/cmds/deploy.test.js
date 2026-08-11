@@ -29,6 +29,7 @@ afterEach(() => {
 it('sends a deploy request with the right params', async () => {
   deploy.request.mockImplementation(params => {
     expect(params.config).toStrictEqual({});
+    expect(params.force).toBe(false);
     expect(params.key).toBe('xxx');
     expect(params.userAgent).toBe(`@formspree/cli@${version}`);
 
@@ -38,7 +39,7 @@ it('sends a deploy request with the right params', async () => {
     });
   });
 
-  await cmd.handler({ config: '{}', key: 'xxx' });
+  await cmd.handler({ config: '{}', key: 'xxx', force: false });
   expect(console.log.mock.calls).toMatchSnapshot();
 });
 
@@ -171,6 +172,7 @@ it('skips validating inline secrets with force flag', async () => {
 
   deploy.request.mockImplementation(params => {
     expect(params.config.apiKey).toBe('my-inline-key');
+    expect(params.force).toBe(true);
     return Promise.resolve({
       status: 200,
       data: { id: 'xxxx-xxxx-xxxx', shim: null }
